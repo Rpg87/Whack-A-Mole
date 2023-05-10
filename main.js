@@ -5,7 +5,8 @@ const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
 const btnStart = document.querySelector('.startGame');
 const hard = document.querySelector('.hard');
-const background = document.querySelector('html');
+const background = document.querySelector('body');
+const title = document.querySelector('.classic');
 let lastHole;
 let timeUp = false;
 let score = 0;
@@ -24,6 +25,22 @@ function randomHole(holes) {
     lastHole = hole;
     return hole;
 }
+function changeStyles(element, style1, style2) {
+    if (element) {
+        element.classList.add(style1);
+        element.classList.remove(style2);
+    }
+}
+function onlyRemove(element, styleR) {
+    element.classList.remove(styleR)
+}
+
+function applyStylesToMoles(moles, removeClass, addClass) {
+    moles.forEach(function (mole) {
+        mole.classList.remove(removeClass);
+        mole.classList.add(addClass);
+    });
+}
 
 
 function peep() {
@@ -37,9 +54,12 @@ function peep() {
     }, time)
 };
 function startGame() {
-    background.classList.remove('change1')
-    moles.forEach(mole => mole.classList.remove('fastmole'));
-    moles.forEach(mole => mole.classList.add('mole'));
+    // background.classList.remove('change1')
+    changeStyles(title, 'classic', 'harder')
+    onlyRemove(background, 'change1')
+    applyStylesToMoles(moles, 'fastmole', 'mole')
+    // moles.forEach(mole => mole.classList.remove('fastmole'));
+    // moles.forEach(mole => mole.classList.add('mole'));
     scoreBoard.textContent = 0;
     timeUp = false;
     score = 0;
@@ -61,10 +81,13 @@ function peepMdm() {
     }, time)
 };
 
+
+
 function hardLvl() {
-    moles.forEach(mole => mole.classList.remove('mole'));
-    moles.forEach(mole => mole.classList.add('fastmole'));
-    background.classList.add('change1')
+    applyStylesToMoles(moles, 'mole', 'fastmole')
+    changeStyles(title, 'harder', 'classic')
+    changeStyles(background, 'change1', 'classic')
+    title.innerHTML = 'Whack - a - punk!';
     scoreBoard.textContent = 0;
     timeUp = false;
     score = 0;

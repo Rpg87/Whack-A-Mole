@@ -1,7 +1,7 @@
 html {
   box-sizing: border-box;
   font-size: 10px;
-  background: #ffc600;
+  /* background: #ffc600; */
 }
 
 *,
@@ -14,13 +14,35 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Amatic SC', cursive;
+  background: #ffc600;
 }
 
-h1 {
+
+.classic {
+  /* color: #664242; */
+  background-image: linear-gradient(-225deg,
+      #ffffff 0%,
+      #82758f 29%,
+      #bc13ff 67%,
+      #002fff 100%);
+
   text-align: center;
   font-size: 10rem;
   line-height: 1;
   margin-bottom: 50px;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .btns {
@@ -139,29 +161,9 @@ h1 {
   background-image: url(images/fireball.jpg);
 }
 
-.change1 h1 {
-  /* color: #664242; */
-  background-image: linear-gradient(-225deg,
-      #ffffff 0%,
-      #82758f 29%,
-      #bc13ff 67%,
-      #002fff 100%);
-
+.change1 .harder {
   text-align: center;
   font-size: 10rem;
   line-height: 1;
   margin-bottom: 50px;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-}
-
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
 }
