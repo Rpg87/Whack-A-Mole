@@ -17,6 +17,23 @@ body {
   background: #ffc600;
 }
 
+.txtChange {
+  display: flex;
+  justify-content: center;
+
+}
+
+.score {
+  /* text-align: center; */
+  font-size: 10rem;
+  margin-top: 6.5rem;
+  margin-left: 2.5rem;
+  /* line-height: 1; */
+  margin-bottom: 50px;
+  color: white;
+  background: rgb(111, 12, 12, 20%);
+
+}
 
 .classic {
   /* color: #664242; */
@@ -164,6 +181,7 @@ body {
 .change1 .harder {
   text-align: center;
   font-size: 10rem;
+  color: #ffffff;
   line-height: 1;
   margin-bottom: 50px;
 }

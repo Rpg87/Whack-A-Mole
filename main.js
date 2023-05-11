@@ -35,6 +35,10 @@ function onlyRemove(element, styleR) {
     element.classList.remove(styleR)
 }
 
+
+/*This function is used to avoid having to copy and paste:
+moles.forEach(mole => mole.classList.remove('anyStyle'));
+moles.forEach(mole => mole.classList.add('otherStyle')); */
 function applyStylesToMoles(moles, removeClass, addClass) {
     moles.forEach(function (mole) {
         mole.classList.remove(removeClass);
@@ -55,6 +59,7 @@ function peep() {
 };
 function startGame() {
     // background.classList.remove('change1')
+    title.innerHTML = 'Whack - a - mole!';
     changeStyles(title, 'classic', 'harder')
     onlyRemove(background, 'change1')
     applyStylesToMoles(moles, 'fastmole', 'mole')
@@ -71,13 +76,13 @@ function startGame() {
 function peepMdm() {
 
     console.log(moles)
-    const time = randomTime(200, 100);
+    const time = randomTime(300, 1000);
     console.log(time)
     const hole = randomHole(holes);
     hole.classList.add('up');
     setTimeout(() => {
         hole.classList.remove('up')
-        if (!timeUp) peep();
+        if (!timeUp) peepMdm();
     }, time)
 };
 
@@ -87,6 +92,7 @@ function hardLvl() {
     applyStylesToMoles(moles, 'mole', 'fastmole')
     changeStyles(title, 'harder', 'classic')
     changeStyles(background, 'change1', 'classic')
+    // title.textContent = 'Whack - a - punk!';
     title.innerHTML = 'Whack - a - punk!';
     scoreBoard.textContent = 0;
     timeUp = false;
